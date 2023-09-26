@@ -51436,7 +51436,7 @@
       "kind": "StringLiteral",
       "offset": 1407,
       "length": 7,
-      "value": "\"0.0.2\""
+      "value": "\"0.0.4\""
     },
     {
       "filePath": "\/Users\/thomasromay\/Documents\/Repo\/exi-ios-sdk\/Source\/Api\/EXIHTTPMethod.swift",
