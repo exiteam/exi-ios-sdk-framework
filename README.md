@@ -30,24 +30,14 @@ Deployable in: Swift 5.3 or later
 
 Minimum iOS Version Supported: iOS 10.0
 
-## Introduction
+## The EXI SDK
 
-SDK stands for software development kit or devkit for short.
-
-It’s a set of software tools and programs used by developers to create applications for specific platforms. SDK tools will include a range of things, including libraries, documentation, code samples, processes, and guides that developers can use and integrate into their own apps. SDKs are designed to be used for specific platforms or programming languages.
-
-## Purpose of SDK
-
-The purpose of SDK is to avoid reusing code so that the development team can concentrate on creative work. SDK provides all of the necessary code that a user will need to build an application that uses API.
-
+The EXI SDK is an exercise prescription SDK that delivers personalized exercises that are clinically validated and digitally delivered for people with or at risk of chronic conditions. It will deal with approximately 23 chronic conditions.
 
 ## Getting Started
 
 To begin using our SDK, you will need to have an active account with us. Once you have an account, you can access the SDK documentation and download the SDK from our website.
 
-## The EXI SDK
-
-The EXI SDK is an exercise prescription SDK that delivers personalized exercises that are clinically validated and digitally delivered for people with or at risk of chronic conditions. It will deal with approximately 23 chronic conditions.
 
 ## SDK Features
 
@@ -129,22 +119,6 @@ The SDK provides a solution for e-prescribing physical activities based on a use
 - Access CMS: https://cms.development.exi.health/
 --  For other environments, replace .development with the environment you want i.e. .mobile
 --  If you need access to the CMS, message anyone with access to send you an invite.
-- Go to Organizations
-
-![Import Package](Documentation/usage/org.png)
-
-- Create a new org 
-
-![Import Package](Documentation/usage/create_org.png)
-
-- Go to the edit org page (only available in edit and not create phase)
-
-![Import Package](Documentation/usage/edit_org.png)
-
-- Go to API “subpage” in dropdown
-
-![Import Package](Documentation/usage/api.png)
-
 - Get the api key from there
 
 ## Get New JWS Token
@@ -184,17 +158,13 @@ To use the EXI iOS SDK, you have the following options:
 
 Step 1 - Add to your Podfile
 ```SH
-pod 'EXISDK'
+ pod 'EXISDK', '0.0.4'
 ```
 Step 2 - Install pod by running the following command in the directory with the
 ```sh
 $ pod install
 ```
 ```SH
-:git => 'https://{git_username}@github.com/exiteam/exi-ios-sdk.git',
-:branch => 'pods'
-```
-`NOTE: Currently, pods are not pushed to the public cocoapods repo. These can be accessed only after authenticating with the user with access to the private repo.`
 
 ## Install using SPM
 Importing EXISDK into Project
@@ -203,12 +173,12 @@ Step 1: Click on Xcode project file
 
 Step 2: Click on Swift Packages and click on the plus to add a package
 
-Step 3: Enter the following repository url 'https://github.com/exiteam/exi-ios-sdk.git' and click next
+Step 3: Enter the following repository url 'https://github.com/exiteam/exi-ios-sdk-framework.git' and click next
 
 Step 4: Leave the default settings to get the most recent release and click next to finish importing
 
 ```SH
-Version: 0.0.1
+Version: 0.0.4
 ```
 
 ![Import Package](Documentation/usage/spm.png)
