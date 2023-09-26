@@ -1,0 +1,36 @@
+{"medical": {
+    "title": "Medical screen",
+    "preface": "Just to be sure you're safe to exercise, do any of the following apply to you?",
+    "medicalList": [
+        {
+            "description": "Have you been diagnosed with a heart condition AND told that you should only do exercise under medical supervision?"
+        },
+        {
+            "description": "Do you experience unexplained pains in your chest at rest or during exercise?"
+        },
+        {
+            "description": "Do you have significant and unexplained dizziness? "
+        },
+        {
+            "description": "If you have been diagnosed with diabetes, have you had significant problems controlling your blood sugars over the past 3 months?"
+        },
+        {
+            "description": "Have you had a serious asthma attack in the past 12 months that required immediate medical attention?"
+        },
+        {
+            "description": "Do you know of any other reason why you should not exercise?"
+        }
+    ],
+    "nextButtonLabel": "Next",
+    "medicalConditionFieldOptions": {
+        "yes": "Yes",
+        "no": "No"
+    },
+    "noticeLabel": "This screening tool does not substitute advice from an appropriately trained medical professional. No responsibility is assumed by EXI for persons who undertake physical activity under this program.",
+    "noteModal": {
+        "title": "Please note:",
+        "content": "Please talk to a health professional before starting this exercise program. If you have already seen a health professional and they have recommended you start an exercise program, you may continue.",
+        "actionButtonTitle": "Continue"
+    }
+}
+}

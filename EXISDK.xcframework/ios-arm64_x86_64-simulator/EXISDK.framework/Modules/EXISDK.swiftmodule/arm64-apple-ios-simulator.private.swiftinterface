@@ -1,0 +1,1267 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-module-flags: -target arm64-apple-ios14.3-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name EXISDK
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import AuthenticationServices
+import Combine
+import CommonCrypto
+import CoreLocation
+import Foundation
+import HealthKit
+import SafariServices
+import Security
+import Swift
+import SwiftUI
+import SystemConfiguration
+import UIKit
+import WebKit
+import _Concurrency
+import _StringProcessing
+public struct EXIProfileRequest : Swift.Codable, Swift.Equatable {
+  public var firstName: Swift.String?, lastName: Swift.String?, dateOfBirth: Swift.String?
+  public var betaBlockers: Swift.Bool?
+  public var healthConditions: [Swift.String]?
+  public var locale: Swift.String?
+  public var customFields: [EXISDK.EXICustomField]?
+  public var timezone: Swift.String?
+  public var region: EXISDK.EXIRegion?
+  public var gender: EXISDK.EXIGender?
+  public var unitSystem: EXISDK.EXIUnit?
+  public var healthMetric: [EXISDK.EXIHealthMetric]?
+  public init(firstName: Swift.String? = nil, lastName: Swift.String? = nil, dateOfBirth: Swift.String? = nil, gender: EXISDK.EXIGender? = nil, betaBlockers: Swift.Bool? = nil, healthConditions: [Swift.String]? = nil, locale: Swift.String? = nil, customFields: [EXISDK.EXICustomField]? = nil, timezone: Swift.String? = nil, region: EXISDK.EXIRegion? = nil, unitSystem: EXISDK.EXIUnit? = nil, healthMetric: [EXISDK.EXIHealthMetric]? = nil)
+  public static func == (a: EXISDK.EXIProfileRequest, b: EXISDK.EXIProfileRequest) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public enum EXIBool : Swift.Equatable {
+  case `true`
+  case `false`(Swift.String)
+  public static func == (a: EXISDK.EXIBool, b: EXISDK.EXIBool) -> Swift.Bool
+}
+public struct EXIRewardScheme : Swift.Codable, Swift.Equatable {
+  public let id: Swift.String?
+  public let name: Swift.String?
+  public let length: Swift.Int?
+  public let sponsor: Swift.String?
+  public let start: Swift.String?
+  public let rewardWeekDetails: EXISDK.EXIRewardWeekThreshold?
+  public let voucherReward: [EXISDK.EXIRewardTypeVoucher]?
+  public let wearableReward: [EXISDK.EXIRewardTypeWearable]?
+  public static func == (a: EXISDK.EXIRewardScheme, b: EXISDK.EXIRewardScheme) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct EXIOrganisation : Swift.Codable, Swift.Equatable {
+  public let id: Swift.String?
+  public let name: Swift.String?
+  public let logoUrl: Swift.String?
+  public let requireMembershipId: Swift.Bool?
+  public let contactDetails: EXISDK.EXIContactDetails?
+  public let terms: EXISDK.EXIDocument?
+  public static func == (a: EXISDK.EXIOrganisation, b: EXISDK.EXIOrganisation) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct EXIContactDetails : Swift.Codable, Swift.Equatable {
+  public let website: Swift.String?
+  public let email: Swift.String?
+  public let phone: Swift.String?
+  public let fax: Swift.String?
+  public let facebook: Swift.String?
+  public let twitter: Swift.String?
+  public let youtube: Swift.String?
+  public let instagram: Swift.String?
+  public static func == (a: EXISDK.EXIContactDetails, b: EXISDK.EXIContactDetails) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct EXIDocument : Swift.Codable, Swift.Equatable {
+  public let id: Swift.String?
+  public let organisationId: Swift.String?
+  public let region: EXISDK.EXIRegion?
+  public let type: EXISDK.EXIDocumentType?
+  public let version: Swift.Int?
+  public let translation: EXISDK.EXIDocumentTranslation?
+  public let createdAt: Swift.String?
+  public let updatedAt: Swift.String?
+  public static func == (a: EXISDK.EXIDocument, b: EXISDK.EXIDocument) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct EXIDocumentTranslation : Swift.Codable, Swift.Equatable {
+  public let locale: Swift.String?
+  public let content: Swift.String?
+  public let title: Swift.String?
+  public static func == (a: EXISDK.EXIDocumentTranslation, b: EXISDK.EXIDocumentTranslation) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public enum EXIDocumentType : Swift.String, Swift.Codable, Swift.Equatable {
+  case terms
+  case privacy
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct EXIRewardTypeVoucher : Swift.Codable, Swift.Equatable {
+  public let id: Swift.String?
+  public let status: EXISDK.EXIRewardTypeStatus?
+  public let startDate: Swift.String?
+  public let amountAvailable: EXISDK.EXIAmount?
+  public let amountEarned: EXISDK.EXIAmount?
+  public let currentWeek: EXISDK.EXIRewardWeekVoucher?
+  public let currentInterval: EXISDK.EXIRewardVoucherInterval?
+  public let history: [EXISDK.EXIRewardVoucherInterval]?
+  public let provider: EXISDK.EXIRewardProviderVoucher?
+  public let schemeId: Swift.String?, providerId: Swift.String?, redemptionFrequency: Swift.String?
+  public let maxAmount: Swift.Int?
+  public let currencyCode: Swift.String?
+  public static func == (a: EXISDK.EXIRewardTypeVoucher, b: EXISDK.EXIRewardTypeVoucher) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct EXIRewardTypeWearable : Swift.Codable, Swift.Equatable {
+  public let id: Swift.String?
+  public let status: EXISDK.EXIRewardTypeStatus?
+  public let orderStatus: EXISDK.EXIWearableOrderStatus?
+  public let startDate: Swift.String?
+  public let enrollmentDeadline: Swift.String?
+  public let provider: EXISDK.EXIRewardProviderWearable?
+  public let code: EXISDK.EXIRewardWearableCode?
+  public static func == (a: EXISDK.EXIRewardTypeWearable, b: EXISDK.EXIRewardTypeWearable) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct EXIStoreFrontProvider {
+  public let id: Swift.String
+  public let storeFront: EXISDK.EXIStorefront
+  public let code: Swift.String
+  public init(id: Swift.String, storeFront: EXISDK.EXIStorefront, code: Swift.String)
+}
+public struct EXIRewardProviderVoucher : Swift.Codable, Swift.Equatable {
+  public let id: Swift.String?
+  public let name: Swift.String?
+  public let logo: Swift.String?
+  public let supplier: Swift.String?
+  public let storefront: EXISDK.EXIStorefront?
+  public static func == (a: EXISDK.EXIRewardProviderVoucher, b: EXISDK.EXIRewardProviderVoucher) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct EXIRewardProviderWearable : Swift.Codable, Swift.Equatable {
+  public let id: Swift.String?
+  public let name: Swift.String?
+  public let logo: Swift.String?
+  public let supplier: Swift.String?
+  public let storefront: EXISDK.EXIStorefront?
+  public let status: Swift.String?
+  public let storefrontId: Swift.String?
+  public static func == (a: EXISDK.EXIRewardProviderWearable, b: EXISDK.EXIRewardProviderWearable) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public enum EXIRewardProviderVoucherSupplier : Swift.String, Swift.Codable, Swift.Equatable {
+  case voucher
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum EXIWearableOrderStatus : Swift.String, Swift.Codable, Swift.Equatable {
+  case successful
+  case failed
+  case delivered
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct EXIVoucher : Swift.Codable, Swift.Equatable {
+  public let code: Swift.String?
+  public let notifiedTime: Swift.String?
+  public let amount: EXISDK.EXIAmount?
+  public static func == (a: EXISDK.EXIVoucher, b: EXISDK.EXIVoucher) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct EXIRewardVoucherInterval : Swift.Codable, Swift.Equatable {
+  public let intervalNumber: Swift.Int?
+  public let startDate: Swift.String?
+  public let endDate: Swift.String?
+  public let nextVoucherDue: Swift.String?
+  public let voucher: EXISDK.EXIVoucher?
+  public let amountAvailable: EXISDK.EXIAmount?
+  public let amountEarned: EXISDK.EXIAmount?
+  public let weeks: [EXISDK.EXIRewardWeekVoucher]?
+  public static func == (a: EXISDK.EXIRewardVoucherInterval, b: EXISDK.EXIRewardVoucherInterval) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct EXIRewardWeekVoucher : Swift.Codable, Swift.Equatable {
+  public let weekNumber: Swift.Int?
+  public let startDate: Swift.String?
+  public let endDate: Swift.String?
+  public let amountAvailable: EXISDK.EXIAmount?
+  public let amountEarned: EXISDK.EXIAmount?
+  public static func == (a: EXISDK.EXIRewardWeekVoucher, b: EXISDK.EXIRewardWeekVoucher) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct EXIRewardWearableCode : Swift.Codable, Swift.Equatable {
+  public let id: Swift.String?
+  public let code: Swift.String?
+  public let status: EXISDK.EXIWearableCodeStatus?
+  public let providerId: Swift.String?
+  public let redeemedAt: Swift.String?
+  public static func == (a: EXISDK.EXIRewardWearableCode, b: EXISDK.EXIRewardWearableCode) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public enum EXIWearableCodeStatus : Swift.String, Swift.Codable, Swift.Equatable {
+  case assigned
+  case redeemed
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum EXIRewardTypeStatus : Swift.String, Swift.Codable, Swift.Equatable {
+  case active
+  case inactive
+  case waiting
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct EXIAmount : Swift.Codable, Swift.Equatable {
+  public let currencyCode: EXISDK.EXICurrencyCode?
+  public let value: Swift.Float?
+  public static func == (a: EXISDK.EXIAmount, b: EXISDK.EXIAmount) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public enum EXICurrencyCode : Swift.String, Swift.Codable, Swift.Equatable {
+  case GBP
+  case EUR
+  case USD
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct EXIStorefront : Swift.Codable, Swift.Equatable {
+  public let storefrontUrl: Swift.String?
+  public let storefrontUrlSuccess: Swift.String?
+  public init(storefrontUrl: Swift.String, storefrontUrlSuccess: Swift.String)
+  public static func == (a: EXISDK.EXIStorefront, b: EXISDK.EXIStorefront) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct EXISixMinuteWalkLog : Swift.Codable, Swift.Equatable {
+  public let id: Swift.Int?
+  public let source: Swift.String?
+  public let value: Swift.Double?
+  public let loggedAt: EXISDK.EXILoggedAt?
+  public let week: Swift.Int?
+  public static func == (a: EXISDK.EXISixMinuteWalkLog, b: EXISDK.EXISixMinuteWalkLog) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public enum EXIHealthMetricName : Swift.Equatable, Swift.Codable, Swift.CaseIterable, Swift.Hashable {
+  case heartrate
+  case activeHeartRate
+  case weight
+  case height
+  case waistCircumference
+  case diastolic
+  case systolic
+  case betaBlocker
+  case activityLevel
+  case glucose
+  case energy
+  case sixmin
+  case hba1c
+  case pain
+  case peak
+  case joint
+  case mood
+  case fatigue
+  case CUSTOM(Swift.String)
+  public var description: Swift.String {
+    get
+  }
+  public static var allCases: [EXISDK.EXIHealthMetricName] {
+    get
+  }
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  public static func == (a: EXISDK.EXIHealthMetricName, b: EXISDK.EXIHealthMetricName) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public typealias AllCases = [EXISDK.EXIHealthMetricName]
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct EXIHealthMetric : Swift.Codable, Swift.Equatable {
+  public var metricId: EXISDK.EXIHealthMetricName
+  public var value: Swift.Int
+  public var loggedAt: Swift.String
+  public var userId: Swift.String?
+  public var monday: Swift.String?
+  public var id: Swift.Int?
+  public var week: Swift.Int?
+  public var source: EXISDK.EXISource?
+  public init(metricId: EXISDK.EXIHealthMetricName, value: Swift.Int, loggedAt: Swift.String)
+  public static func == (a: EXISDK.EXIHealthMetric, b: EXISDK.EXIHealthMetric) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct EXIHealthCondition {
+  public var id: Swift.String?
+  public var orderIndex: Swift.Int?
+  public var name: Swift.String?
+  public var stream: EXISDK.EXIHealthConditionStream?
+  public var status: EXISDK.EXIHealthConditionStatus?
+  public var maximumIntensity: EXISDK.EXIIntensity?, maximumIntensity12On: EXISDK.EXIIntensity?
+  public var translations: [EXISDK.EXIHealthConditionTranslation]?
+  public static func == (a: EXISDK.EXIHealthCondition, b: EXISDK.EXIHealthCondition) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct EXIHealthConditionTranslation : Swift.Codable, Swift.Equatable, EXISDK.EXITranslation {
+  public var locale: Swift.String?, name: Swift.String?, description: Swift.String?, libraryContent: Swift.String?
+  public static func == (a: EXISDK.EXIHealthConditionTranslation, b: EXISDK.EXIHealthConditionTranslation) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public enum EXIHealthConditionStatus : Swift.String, Swift.Equatable, Swift.Codable, Swift.CaseIterable {
+  case DRAFT
+  case ACTIVE
+  case DELETED
+  public var description: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.String)
+  public typealias AllCases = [EXISDK.EXIHealthConditionStatus]
+  public typealias RawValue = Swift.String
+  public static var allCases: [EXISDK.EXIHealthConditionStatus] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum EXIHealthConditionStream : Swift.String, Swift.Equatable, Swift.Codable, Swift.CaseIterable {
+  case STANDARD
+  case FIBROMYALGIA
+  case PERIPHERAL_ARTERIAL_DISEASE
+  public var description: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.String)
+  public typealias AllCases = [EXISDK.EXIHealthConditionStream]
+  public typealias RawValue = Swift.String
+  public static var allCases: [EXISDK.EXIHealthConditionStream] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct EXIGraph : Swift.Codable, Swift.Equatable {
+  public var id: Swift.String?
+  public var isActive: Swift.Bool?
+  public var type: EXISDK.EXIChartType?
+  public var title: Swift.String?
+  public var minY: Swift.Double?
+  public var maxY: Swift.Double?
+  public var interval: Swift.Double?
+  public var unit: Swift.String?
+  public var fixedUnit: Swift.String?
+  public var graphData: [EXISDK.EXIGraphData]?
+  public static func == (a: EXISDK.EXIGraph, b: EXISDK.EXIGraph) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public enum EXIFixedUnit : Swift.String, Swift.Equatable, Swift.Codable, Swift.CaseIterable {
+  case cm
+  case kg
+  case mgPerDl
+  case inch
+  case lbs
+  case feet
+  case m
+  public init?(rawValue: Swift.String)
+  public typealias AllCases = [EXISDK.EXIFixedUnit]
+  public typealias RawValue = Swift.String
+  public static var allCases: [EXISDK.EXIFixedUnit] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum EXIChartType : Swift.String, Swift.Equatable, Swift.Codable, Swift.CaseIterable {
+  case bar
+  case line
+  public init?(rawValue: Swift.String)
+  public typealias AllCases = [EXISDK.EXIChartType]
+  public typealias RawValue = Swift.String
+  public static var allCases: [EXISDK.EXIChartType] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct EXIGraphData : Swift.Codable, Swift.Equatable {
+  public var id: Swift.String?, name: Swift.String?
+  public var entries: [EXISDK.EXIGraphEntry]?
+  public static func == (a: EXISDK.EXIGraphData, b: EXISDK.EXIGraphData) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct EXIGraphEntry : Swift.Codable, Swift.Equatable {
+  public var x: Swift.Double?
+  public var y: Swift.Double?
+  public static func == (a: EXISDK.EXIGraphEntry, b: EXISDK.EXIGraphEntry) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public enum EXIGender : Swift.Equatable, Swift.Codable, Swift.CaseIterable {
+  public static var allCases: [EXISDK.EXIGender] {
+    get
+  }
+  case MALE
+  case FEMALE
+  case OTHER
+  case CUSTOM(Swift.String)
+  public var description: Swift.String {
+    get
+  }
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  public static func == (a: EXISDK.EXIGender, b: EXISDK.EXIGender) -> Swift.Bool
+  public typealias AllCases = [EXISDK.EXIGender]
+}
+public struct EXIMetadata : Swift.Codable, Swift.Equatable {
+  public var termsURL: Swift.String?
+  public var privacyPolicyURL: Swift.String?
+  public static func == (a: EXISDK.EXIMetadata, b: EXISDK.EXIMetadata) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct EXIActivity : Swift.Codable, Swift.Equatable {
+  public let id: Swift.String?, name: Swift.String?
+  public static func == (a: EXISDK.EXIActivity, b: EXISDK.EXIActivity) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct EXIActivityGroup : Swift.Codable, Swift.Equatable {
+  public let id: Swift.Int?, orderIndex: Swift.Int?
+  public let name: Swift.String?
+  public let activityTypes: [EXISDK.EXIActivityType]?
+  public static func == (a: EXISDK.EXIActivityGroup, b: EXISDK.EXIActivityGroup) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct EXIActivityTranslation : Swift.Codable, Swift.Equatable, EXISDK.EXITranslation {
+  public var name: Swift.String?
+  public var locale: Swift.String?
+  public var mediaResourceId: Swift.String?, description: Swift.String?
+  public static func == (a: EXISDK.EXIActivityTranslation, b: EXISDK.EXIActivityTranslation) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct EXICustomField : Swift.Codable, Swift.Equatable {
+  public var id: Swift.String?, name: Swift.String?, type: Swift.String?, organisationId: Swift.String?, value: Swift.String?
+  public var translations: [EXISDK.EXICustomFieldTranslation]?
+  public init(name: Swift.String? = nil, value: Swift.String? = nil)
+  public static func == (a: EXISDK.EXICustomField, b: EXISDK.EXICustomField) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct EXICustomFieldTranslation : Swift.Codable, Swift.Equatable, EXISDK.EXITranslation {
+  public var description: Swift.String?
+  public var name: Swift.String?
+  public var locale: Swift.String?
+  public static func == (a: EXISDK.EXICustomFieldTranslation, b: EXISDK.EXICustomFieldTranslation) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public protocol EXITranslation : Swift.Equatable {
+  var name: Swift.String? { get set }
+  var locale: Swift.String? { get set }
+  var description: Swift.String? { get set }
+}
+public struct EXIProfile : Swift.Codable, Swift.Equatable {
+  public var id: Swift.String?, externalId: Swift.String?, organisationId: Swift.String?, firstName: Swift.String?
+  public var gender: EXISDK.EXIGender?
+  public var lastName: Swift.String?, dateOfBirth: Swift.String?
+  public var hasSubmittedCondition: Swift.Bool?, hasSubmittedGoals: Swift.Bool?
+  public var email: Swift.String?, profileImgId: Swift.String?, rewardSchemeId: Swift.String?
+  public var healthConditions: [EXISDK.EXIHealthCondition]?
+  public var locale: Swift.String?
+  public var customFields: [EXISDK.EXICustomField]?
+  public var timezone: Swift.String?, createdAt: Swift.String?, updatedAt: Swift.String?
+  public var region: EXISDK.EXIRegion?
+  public var unitSystem: EXISDK.EXIUnit?
+  public var healthMetric: [EXISDK.EXIHealthMetric]?
+  public var submittedProfile: Swift.Bool?
+  public var subscriptionEnabled: Swift.Bool?, subscriptionActive: Swift.Bool?
+  public var subscriptionStatus: Swift.String?
+  public var isPushEnabled: Swift.Bool?, isMarketingConsentEnabled: Swift.Bool?
+  public var heartRateResting: Swift.Int?, activityLevel: Swift.Int?
+  public var betaBlockers: Swift.Bool?
+  public var healthRecords: EXISDK.EXIHealthRecords?
+  public var isOrganisationRewardExisted: Swift.Bool?
+  public static func == (a: EXISDK.EXIProfile, b: EXISDK.EXIProfile) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct EXIHealthRecords : Swift.Codable, Swift.Equatable {
+  public var betaBlockers: EXISDK.EXIHealthRecords.EXIRecord?
+  public var heartRateResting: EXISDK.EXIHealthRecords.EXIRecord?
+  public var activityLevel: EXISDK.EXIHealthRecords.EXIRecord?
+  public struct EXIRecord : Swift.Codable, Swift.Equatable {
+    public var id: Swift.String?
+    public var value: Swift.Int?
+    public static func == (a: EXISDK.EXIHealthRecords.EXIRecord, b: EXISDK.EXIHealthRecords.EXIRecord) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
+  }
+  public static func == (a: EXISDK.EXIHealthRecords, b: EXISDK.EXIHealthRecords) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public enum EXIStorefrontResponse {
+  case success
+  case failed
+  case cancelled
+  public static func == (a: EXISDK.EXIStorefrontResponse, b: EXISDK.EXIStorefrontResponse) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum EXIRegion : Swift.Codable, Swift.CaseIterable, Swift.Equatable {
+  public static var allCases: [EXISDK.EXIRegion] {
+    get
+  }
+  case EU
+  case UK
+  case US
+  case ROW
+  case CUSTOM(Swift.String)
+  public var description: Swift.String {
+    get
+  }
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  public static func == (a: EXISDK.EXIRegion, b: EXISDK.EXIRegion) -> Swift.Bool
+  public typealias AllCases = [EXISDK.EXIRegion]
+}
+public struct EXICustomFieldRequest : Swift.Codable, Swift.Equatable {
+  public var name: Swift.String
+  public var value: Swift.String
+  public init(name: Swift.String, value: Swift.String)
+  public static func == (a: EXISDK.EXICustomFieldRequest, b: EXISDK.EXICustomFieldRequest) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public enum EXIUnit : Swift.Equatable, Swift.Codable, Swift.CaseIterable {
+  case IMPERIAL
+  case METRIC
+  case CUSTOM(Swift.String)
+  public var description: Swift.String {
+    get
+  }
+  public static var allCases: [EXISDK.EXIUnit] {
+    get
+  }
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  public static func == (a: EXISDK.EXIUnit, b: EXISDK.EXIUnit) -> Swift.Bool
+  public typealias AllCases = [EXISDK.EXIUnit]
+}
+public let EXISDK: EXISDK.EXISession
+public struct EXIActivityType : Swift.Codable, Swift.Equatable {
+  public let id: Swift.String?
+  public let orderIndex: Swift.Int?
+  public let intensity: EXISDK.EXIIntensity?
+  public let status: Swift.String?
+  public let trackingType: EXISDK.EXITrackingType?
+  public let appleId: Swift.Int?, googleId: Swift.Int?, fitbitId: Swift.Int?
+  public let organisationPackageId: Swift.String?
+  public let imageUrl: Swift.String?
+  public let translations: [EXISDK.EXIActivityTranslation]?
+  public let media: EXISDK.EXIMedia?
+  public let name: Swift.String?
+  public static func == (a: EXISDK.EXIActivityType, b: EXISDK.EXIActivityType) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct EXIMedia : Swift.Codable, Swift.Equatable {
+  public let id: Swift.String?
+  public let type: EXISDK.EXIMediaResourceType?
+  public let key: Swift.String?, filename: Swift.String?
+  public let duration: Swift.Int?
+  public let autoplay: Swift.Bool?, isGuidedAudio: Swift.Bool?
+  public static func == (a: EXISDK.EXIMedia, b: EXISDK.EXIMedia) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public enum EXIMediaResourceType : Swift.String, Swift.Equatable, Swift.Codable, Swift.CaseIterable {
+  case VIDEO
+  case AUDIO
+  case IMAGE
+  public var description: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.String)
+  public typealias AllCases = [EXISDK.EXIMediaResourceType]
+  public typealias RawValue = Swift.String
+  public static var allCases: [EXISDK.EXIMediaResourceType] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum EXITrackingType : Swift.String, Swift.Equatable, Swift.Codable, Swift.CaseIterable {
+  case ROUTE
+  case DEFAULT
+  public var description: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.String)
+  public typealias AllCases = [EXISDK.EXITrackingType]
+  public typealias RawValue = Swift.String
+  public static var allCases: [EXISDK.EXITrackingType] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct EXIHealthMetricRequest : Swift.Codable, Swift.Equatable {
+  public var startDate: Swift.String?
+  public var endDate: Swift.String?
+  public var metricIds: [EXISDK.EXIHealthMetricName]?
+  public var limit: Swift.Int?
+  public var page: Swift.Int?
+  public var orderBy: EXISDK.EXIHealthMetricRequest.EXIOrderBy?
+  public var order: Swift.String?
+  public enum EXIOrderBy : Swift.String, Swift.Codable, Swift.Equatable, Swift.CaseIterable {
+    case id
+    case healthMetricId
+    case value
+    case loggedAt
+    case week
+    case monday
+    case source
+    public init?(rawValue: Swift.String)
+    public typealias AllCases = [EXISDK.EXIHealthMetricRequest.EXIOrderBy]
+    public typealias RawValue = Swift.String
+    public static var allCases: [EXISDK.EXIHealthMetricRequest.EXIOrderBy] {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public init(startDate: Swift.String? = nil, endDate: Swift.String? = nil, metricIds: [EXISDK.EXIHealthMetricName]? = nil, limit: Swift.Int? = nil, page: Swift.Int? = nil, orderBy: EXISDK.EXIHealthMetricRequest.EXIOrderBy? = nil, order: Swift.String? = nil)
+  public static func == (a: EXISDK.EXIHealthMetricRequest, b: EXISDK.EXIHealthMetricRequest) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+extension EXISDK.EXISession {
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func connect(device: EXISDK.EXIDevice = .fitbit, clientId: Swift.String, callbackScheme: Swift.String, anchor: AuthenticationServices.ASPresentationAnchor) async -> Swift.Bool
+  #endif
+  final public func isConnected(device: EXISDK.EXIDevice) -> Swift.Bool
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func disconnect(device: EXISDK.EXIDevice) async -> Swift.Bool
+  #endif
+}
+public enum EXIActivityTrackingMetrics {
+  case distance(Swift.Double)
+  case timeInterval(Swift.Double)
+  case speed(Swift.Double)
+  case heartRate(Swift.Double)
+  case calorie(type: EXISDK.EXICalorie)
+  case heartRateTrace(type: [EXISDK.EXIHeartRateTrace])
+  case stepCount(Swift.Int)
+  case route(geoPoints: [EXISDK.EXIGeoPoint])
+  case rpe(Swift.Int)
+  case rewardsMinutes(Swift.Int)
+}
+public struct EXIWorkoutData {
+  public let heartRate: Swift.Double
+  public let activeEnergy: Swift.Double
+  public let restingEnergy: Swift.Double
+  public let stepsCount: Swift.Int
+}
+public enum EXIDevice : Swift.String, Swift.CaseIterable {
+  case fitbit
+  public var description: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.String)
+  public typealias AllCases = [EXISDK.EXIDevice]
+  public typealias RawValue = Swift.String
+  public static var allCases: [EXISDK.EXIDevice] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct EXIRewardWeekThreshold : Swift.Codable, Swift.Equatable {
+  public let targetHeartRate: EXISDK.EXITargetHeartRate?
+  public let rewardMinutes: EXISDK.EXIRewardMinutesDetails?
+  public static func == (a: EXISDK.EXIRewardWeekThreshold, b: EXISDK.EXIRewardWeekThreshold) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct EXITargetHeartRate : Swift.Codable, Swift.Equatable {
+  public let min: Swift.Int?
+  public let max: Swift.Int?
+  public static func == (a: EXISDK.EXITargetHeartRate, b: EXISDK.EXITargetHeartRate) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct EXIRewardMinutesDetails : Swift.Codable, Swift.Equatable {
+  public let target: Swift.Int?
+  public let actual: Swift.Int?
+  public static func == (a: EXISDK.EXIRewardMinutesDetails, b: EXISDK.EXIRewardMinutesDetails) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct EXILogActivityRequest : Swift.Codable, Swift.Equatable {
+  public var loggedAt: Swift.String, activityType: Swift.String
+  public var duration: Swift.Int?, heartRate: Swift.Int?, rpe: Swift.Int?, steps: Swift.Int?
+  public var distance: Swift.Double?
+  public var appleId: Swift.Int?
+  public var googleId: Swift.Int?
+  public var fitbitId: Swift.Int?
+  public var dataCaptureMode: EXISDK.EXICaptureMode
+  public var calorie: EXISDK.EXICalorie?
+  public var path: [EXISDK.EXIGeoPoint]?
+  public var heartRateTrace: [EXISDK.EXIHeartRateTrace]?
+  public init(loggedAt: Swift.String, activityType: Swift.String, duration: Swift.Int? = nil, heartRate: Swift.Int? = nil, rpe: Swift.Int? = nil, steps: Swift.Int? = nil, distance: Swift.Double? = nil, appleId: Swift.Int? = nil, googleId: Swift.Int? = nil, fitbitId: Swift.Int? = nil, dataCaptureMode: EXISDK.EXICaptureMode, calorie: EXISDK.EXICalorie? = nil, path: [EXISDK.EXIGeoPoint]? = nil, heartRateTrace: [EXISDK.EXIHeartRateTrace]? = nil)
+  public static func == (a: EXISDK.EXILogActivityRequest, b: EXISDK.EXILogActivityRequest) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct EXIRegisterResponse : Swift.Codable, Swift.Equatable {
+  public let user: EXISDK.EXIProfile?
+  public static func == (a: EXISDK.EXIRegisterResponse, b: EXISDK.EXIRegisterResponse) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public enum EXIActivityLevel : Swift.Int, Swift.Codable, Swift.Equatable, Swift.CaseIterable {
+  case sedentary
+  case moderate
+  case high
+  public var description: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias AllCases = [EXISDK.EXIActivityLevel]
+  public typealias RawValue = Swift.Int
+  public static var allCases: [EXISDK.EXIActivityLevel] {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers final public class EXISession {
+  final public let version: Swift.String
+  public static let `default`: EXISDK.EXISession
+  final public func setup(configuration: EXISDK.EXIConfiguration)
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func getCustomFields() async -> EXISDK.EXIResult<[EXISDK.EXICustomField]>
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func getHealthConditions() async -> EXISDK.EXIResult<[EXISDK.EXIHealthCondition]>
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func getHealthCondition(conditionId: Swift.String) async -> EXISDK.EXIResult<EXISDK.EXIHealthCondition>
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func getPrescription(week: Swift.Int? = nil) async -> EXISDK.EXIResult<EXISDK.EXIPrescription>
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func restartPrescription() async -> EXISDK.EXIResult<EXISDK.EXIPrescription>
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func getUserBadge(week: Swift.Int) async -> EXISDK.EXIResult<EXISDK.EXIBadge>
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func getUser() async -> EXISDK.EXIResult<EXISDK.EXIProfile>
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func updateUser(user: EXISDK.EXIProfileRequest) async -> EXISDK.EXIResult<EXISDK.EXIProfile>
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func deleteAccount() async -> EXISDK.EXIResult<Swift.Bool>
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func isPrescriptionAvailable() async -> EXISDK.EXIResult<Swift.Bool>
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func getActivityGroups(intensity: EXISDK.EXIIntensity) async -> EXISDK.EXIResult<[EXISDK.EXIActivityGroup]>
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func getAllActivities(intensity: EXISDK.EXIIntensity) async -> EXISDK.EXIResult<[EXISDK.EXIActivity]>
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func logActivity(request: EXISDK.EXILogActivityRequest) async -> EXISDK.EXIResult<EXISDK.EXIActivityLog>
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func getActivityLogs(loggedAt: Swift.String) async -> EXISDK.EXIResult<[EXISDK.EXIActivityLog]>
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func getUserActivityTypes(intensity: EXISDK.EXIIntensity) async -> EXISDK.EXIResult<[EXISDK.EXIActivityType]>
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func updateHealthMetrics(healthMetrics: [EXISDK.EXIHealthMetric]) async -> EXISDK.EXIResult<[EXISDK.EXIHealthMetric]>
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func logSixMinuteWalk(request: EXISDK.EXISixMinuteWalkRequest) async -> EXISDK.EXIResult<EXISDK.EXISixMinuteWalkLog>
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func getUserHealthMetrics(request: EXISDK.EXIHealthMetricRequest? = nil) async -> EXISDK.EXIResult<[EXISDK.EXIUserHealthMetric]>
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func getDueHealthMetrics() async -> EXISDK.EXIResult<[EXISDK.EXIHealthMetricName]>
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func getTrackableHealthMetrics() async -> EXISDK.EXIResult<[EXISDK.EXIMetric]>
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func getHealthRecords() async -> EXISDK.EXIResult<[EXISDK.EXIGraph]>
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func getAnalysisReport() async -> EXISDK.EXIResult<Swift.String>
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func getMediaURL(key: Swift.String) async -> EXISDK.EXIResult<Swift.String>
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func getRewardThreshold(week: Swift.Int) async -> EXISDK.EXIResult<EXISDK.EXIRewardWeekThreshold>
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func getRewardScheme(week: Swift.Int? = nil) async -> EXISDK.EXIResult<EXISDK.EXIRewardScheme>
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func generateCode(rewardId: Swift.String) async -> EXISDK.EXIResult<EXISDK.EXIRewardWearableCode>
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func confirmRewardDelivery(rewardId: Swift.String) async -> EXISDK.EXIResult<Swift.Bool>
+  #endif
+  final public func claimReward(presenter: UIKit.UIViewController, theme: EXISDK.EXIThemeable? = nil, reward: EXISDK.EXIStoreFrontProvider) -> Combine.AnyPublisher<EXISDK.EXIStorefrontResponse, Swift.Never>
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func syncWorkouts(since: Foundation.Date) async
+  #endif
+  final public func getMedicalQuestionnaire() throws -> EXISDK.EXIMedialQS?
+  @objc deinit
+}
+public struct EXIUserHealthMetric : Swift.Codable, Swift.Equatable {
+  public let id: Swift.Int?
+  public let userId: Swift.String?
+  public let healthMetricId: EXISDK.EXIHealthMetricName?
+  public let value: Swift.Double?
+  public let loggedAt: Swift.String?
+  public let week: Swift.Int?
+  public let monday: Swift.String?
+  public let source: EXISDK.EXISource?
+  public let metric: EXISDK.EXIMetric?
+  public static func == (a: EXISDK.EXIUserHealthMetric, b: EXISDK.EXIUserHealthMetric) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct EXIMetric : Swift.Codable, Swift.Equatable {
+  public let unit: Swift.String?
+  public let id: EXISDK.EXIHealthMetricName?
+  public let minValue: Swift.Int?, maxValue: Swift.Int?
+  public let progressType: EXISDK.EXIMetricProgressType?
+  public let translations: [EXISDK.EXIHealthMetricTranslation]?
+  public let translation: EXISDK.EXIHealthMetricTranslation?
+  public static func == (a: EXISDK.EXIMetric, b: EXISDK.EXIMetric) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public enum EXIMetricProgressType : Swift.String, Swift.Codable, Swift.Equatable, Swift.CaseIterable {
+  case decremental
+  case incremental
+  public var description: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.String)
+  public typealias AllCases = [EXISDK.EXIMetricProgressType]
+  public typealias RawValue = Swift.String
+  public static var allCases: [EXISDK.EXIMetricProgressType] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct EXIHealthMetricTranslation : EXISDK.EXITranslation, Swift.Codable, Swift.Equatable {
+  public var description: Swift.String?
+  public var locale: Swift.String?
+  public var name: Swift.String?
+  public var shortDescription: Swift.String?
+  public var longDescription: Swift.String?
+  public static func == (a: EXISDK.EXIHealthMetricTranslation, b: EXISDK.EXIHealthMetricTranslation) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public enum EXISource : Swift.String, Swift.Codable, Swift.Equatable, Swift.CaseIterable {
+  case app
+  case sdk
+  case thirdParty
+  public var description: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.String)
+  public typealias AllCases = [EXISDK.EXISource]
+  public typealias RawValue = Swift.String
+  public static var allCases: [EXISDK.EXISource] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum EXIError : Swift.Error, Swift.Equatable, Foundation.LocalizedError {
+  case invalidHeaders
+  case nilConfiguration
+  case emptyApiKey
+  case noData
+  case emptyJwtToken
+  case invalidKey
+  case invalidKeyPrefix
+  case invalidKeyLength
+  case expiredToken
+  case invalidJwtToken
+  case invalidJwtHeader
+  case invalidJwtTokenPayload
+  case missingToken
+  case invalidData
+  case noInternet
+  case unsupportedURL
+  case jsonDecodingFailure
+  case organisationNotFound
+  case invalidUUID
+  case userNotFound(description: Swift.String)
+  case responseUnsuccessful(description: Swift.String)
+  case decodingTaskFailure(description: Swift.String)
+  case requestFailed(description: Swift.String)
+  case jsonConversionFailure(description: Swift.String)
+  case postParametersEncodingFailure(description: Swift.String)
+  case requestError(description: Swift.String)
+  case wrongCustomField(description: Swift.String)
+  case wrongHealthCondition(description: Swift.String)
+  case wrongActivityType(description: Swift.String)
+  case outOfRange(description: Swift.String)
+  case healthKitError(description: Swift.String)
+  case fitbitAccessTokenExpired
+  case fitbitRefreshTokenExpired
+  case fitbitUnauthorized
+  public static func == (a: EXISDK.EXIError, b: EXISDK.EXIError) -> Swift.Bool
+}
+extension EXISDK.EXIError {
+  public var localizedDescription: Swift.String {
+    get
+  }
+  public var errorDescription: Swift.String {
+    get
+  }
+}
+public struct EXISixMinuteWalkRequest : Swift.Codable, Swift.Equatable {
+  public var heartBeatsPerMinute: Swift.Int?
+  public var distance: Swift.Double
+  public var loggedAt: Swift.String
+  public var rpe: Swift.Int?, stepCount: Swift.Int?, timeInterval: Swift.Int?
+  public var calorie: EXISDK.EXICalorie?
+  public var path: [EXISDK.EXIGeoPoint]?
+  public var heartRateTrace: [EXISDK.EXIHeartRateTrace]?
+  public init(heartBeatsPerMinute: Swift.Int? = nil, distance: Swift.Double, loggedAt: Swift.String, rpe: Swift.Int? = nil, stepCount: Swift.Int? = nil, timeInterval: Swift.Int? = nil, calorie: EXISDK.EXICalorie? = nil, path: [EXISDK.EXIGeoPoint]? = nil, heartRateTrace: [EXISDK.EXIHeartRateTrace]? = nil)
+  public static func == (a: EXISDK.EXISixMinuteWalkRequest, b: EXISDK.EXISixMinuteWalkRequest) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct EXICalorie : Swift.Codable, Swift.Equatable {
+  public var activeEnergy: Swift.Double?, restingEnergy: Swift.Double?
+  public init(activeEnergy: Swift.Double? = nil, restingEnergy: Swift.Double? = nil)
+  public static func == (a: EXISDK.EXICalorie, b: EXISDK.EXICalorie) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct EXIGeoPoint : Swift.Codable, Swift.Equatable {
+  public var lat: Swift.Double, lon: Swift.Double
+  public init(lat: Swift.Double, lon: Swift.Double)
+  public static func == (a: EXISDK.EXIGeoPoint, b: EXISDK.EXIGeoPoint) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct EXIPrescription : Swift.Codable, Swift.Equatable {
+  public let userID: Swift.String?, streamID: Swift.String?
+  public let includeHighIntensity: Swift.Bool?
+  public let startedAt: EXISDK.EXIDate?
+  public let weeks: [EXISDK.EXIWeek]?
+  public let weekStartDay: Swift.String?
+  public let currentWeek: Swift.Int?
+  public static func == (a: EXISDK.EXIPrescription, b: EXISDK.EXIPrescription) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct EXIWeek : Swift.Codable, Swift.Equatable {
+  public let week: Swift.Int?
+  public let steps: Swift.Int?, setsOfSteps: Swift.Int?
+  public let setsOfLow: Swift.Int?, lowMinutes: Swift.Int?
+  public let setsOfMed: Swift.Int?, medMinutes: Swift.Int?
+  public let setsOfHigh: Swift.Int?, highMinutes: Swift.Int?
+  public static func == (a: EXISDK.EXIWeek, b: EXISDK.EXIWeek) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct EXIDate : Swift.Codable, Swift.Equatable {
+  public var dateTime: Swift.String?, timezone: Swift.String?
+  public init(dateTime: Swift.String? = nil, timezone: Swift.String? = nil)
+  public static func == (a: EXISDK.EXIDate, b: EXISDK.EXIDate) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public enum EXIBadge : Swift.String, Swift.Equatable, Swift.Codable, Swift.CaseIterable, Swift.RawRepresentable {
+  case BRONZE
+  case SILVER
+  case GOLD
+  case THREE_WEEK_STREAK
+  case NONE
+  public var description: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.String)
+  public typealias AllCases = [EXISDK.EXIBadge]
+  public typealias RawValue = Swift.String
+  public static var allCases: [EXISDK.EXIBadge] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+}
+extension EXISDK.EXISession {
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func requestHealthKitPermission() async throws -> Swift.Bool
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func healthKitPermissionGranted() async throws -> Swift.Bool
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func startMonitoringHeartRate(completion: @escaping (Swift.Double) -> Swift.Void) async throws
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func startMonitoringActiveEnergy(completion: @escaping (Swift.Double) -> Swift.Void) async throws
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func startMonitoringRestingEnergy(completion: @escaping (Swift.Double) -> Swift.Void) async throws
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func startMonitoringStepsCount(completion: @escaping (Swift.Int) -> Swift.Void) async throws
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func startWorkout(activityType: Swift.Int?) async throws -> Combine.AnyPublisher<EXISDK.EXIWorkoutData, Swift.Never>
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func pauseWorkout() async
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func resumeWorkout() async
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func submitWorkout(metrics: [EXISDK.EXIActivityTrackingMetrics]? = nil) async throws
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func fetchSteps(from: Foundation.Date, to: Foundation.Date) async throws -> Swift.Int?
+  #endif
+}
+public struct EXIMedialQS : Swift.Codable, Swift.Equatable {
+  public let medical: EXISDK.Medical
+  public static func == (a: EXISDK.EXIMedialQS, b: EXISDK.EXIMedialQS) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct Medical : Swift.Codable, Swift.Equatable {
+  public let title: Swift.String, preface: Swift.String
+  public let medicalList: [EXISDK.MedicalList]
+  public let nextButtonLabel: Swift.String
+  public let medicalConditionFieldOptions: EXISDK.MedicalConditionFieldOptions
+  public let noticeLabel: Swift.String
+  public let noteModal: EXISDK.NoteModal
+  public static func == (a: EXISDK.Medical, b: EXISDK.Medical) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct MedicalConditionFieldOptions : Swift.Codable, Swift.Equatable {
+  public let yes: Swift.String, no: Swift.String
+  public static func == (a: EXISDK.MedicalConditionFieldOptions, b: EXISDK.MedicalConditionFieldOptions) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct MedicalList : Swift.Codable, Swift.Equatable {
+  public let medicalListDescription: Swift.String
+  public static func == (a: EXISDK.MedicalList, b: EXISDK.MedicalList) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct NoteModal : Swift.Codable, Swift.Equatable {
+  public let title: Swift.String, content: Swift.String, actionButtonTitle: Swift.String
+  public static func == (a: EXISDK.NoteModal, b: EXISDK.NoteModal) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public protocol EXIThemeable {
+  var bodyTextColor: SwiftUI.Color { get }
+  var bottomBarColor: SwiftUI.Color { get }
+  var titleLabel: SwiftUI.Color { get }
+  var buttonPrimaryColor: SwiftUI.Color { get }
+}
+public typealias EXIResultCompletion<T> = (EXISDK.EXIResult<T>) -> Swift.Void where T : Swift.Decodable, T : Swift.Encodable
+public typealias EXIResult<T> = (Swift.Result<T, EXISDK.EXIError>)
+final public class EXIConfiguration {
+  public init(apiKey: Swift.String, jwsToken: Swift.String? = nil, logggingEnabled: Swift.Bool = true, mockEnabled: Swift.Bool = false, environment: EXISDK.EXIEnvironmentOptions = .integration)
+  @objc deinit
+}
+public enum EXIEnvironmentOptions {
+  case mobile
+  case devlopment_uk
+  case devlopment_us
+  case integration
+  public static func == (a: EXISDK.EXIEnvironmentOptions, b: EXISDK.EXIEnvironmentOptions) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct EXIActivityLog : Swift.Codable, Swift.Equatable {
+  public let id: Swift.String?, userId: Swift.String?, activityId: Swift.String?, activityType: Swift.String?, source: Swift.String?
+  public let value: Swift.Int?
+  public let lowIntensityValue: Swift.Int?, mediumIntensityValue: Swift.Int?, highIntensityValue: Swift.Int?, rewardValue: Swift.Int?, rpe: Swift.Int?, heartRate: Swift.Int?, duration: Swift.Int?, averageHeartRate: Swift.Int?
+  public let route: [EXISDK.EXIGeoPoint]?
+  public let steps: Swift.Int?
+  public let distance: Swift.Double?
+  public var loggedAt: EXISDK.EXILoggedAt?
+  public let week: Swift.Int?
+  public let intensity: EXISDK.EXIIntensity?
+  public let loggedPrevious: Swift.Bool?
+  public let day: Swift.Int?
+  public let heartRateTrace: [EXISDK.EXIHeartRateTrace]?
+  public let captureMode: EXISDK.EXICaptureMode?
+  public let translations: [EXISDK.EXIActivityTranslation]?
+  public static func == (a: EXISDK.EXIActivityLog, b: EXISDK.EXIActivityLog) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public enum EXILoggedAt : Swift.Codable, Swift.Equatable {
+  case date(Swift.String?)
+  case dateAndTimeZone(EXISDK.EXIDate?)
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  public static func == (a: EXISDK.EXILoggedAt, b: EXISDK.EXILoggedAt) -> Swift.Bool
+}
+public struct EXIHeartRateTrace : Swift.Codable, Swift.Equatable {
+  public var date: Swift.String?
+  public var heartRate: Swift.Double?
+  public init(date: Swift.String? = nil, heartRate: Swift.Double)
+  public static func == (a: EXISDK.EXIHeartRateTrace, b: EXISDK.EXIHeartRateTrace) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public enum EXICaptureMode : Swift.String, Swift.Equatable, Swift.Codable {
+  case CAPTURED
+  case MANUALLY_ENTERED
+  case UNKNOWN
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum EXIIntensity : Swift.String, Swift.Equatable, Swift.Codable, Swift.CaseIterable {
+  case LOW
+  case MEDIUM
+  case HIGH
+  public var description: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.String)
+  public typealias AllCases = [EXISDK.EXIIntensity]
+  public typealias RawValue = Swift.String
+  public static var allCases: [EXISDK.EXIIntensity] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+}
+extension EXISDK.EXIDocumentType : Swift.Hashable {}
+extension EXISDK.EXIDocumentType : Swift.RawRepresentable {}
+extension EXISDK.EXIRewardProviderVoucherSupplier : Swift.Hashable {}
+extension EXISDK.EXIRewardProviderVoucherSupplier : Swift.RawRepresentable {}
+extension EXISDK.EXIWearableOrderStatus : Swift.Hashable {}
+extension EXISDK.EXIWearableOrderStatus : Swift.RawRepresentable {}
+extension EXISDK.EXIWearableCodeStatus : Swift.Hashable {}
+extension EXISDK.EXIWearableCodeStatus : Swift.RawRepresentable {}
+extension EXISDK.EXIRewardTypeStatus : Swift.Hashable {}
+extension EXISDK.EXIRewardTypeStatus : Swift.RawRepresentable {}
+extension EXISDK.EXICurrencyCode : Swift.Hashable {}
+extension EXISDK.EXICurrencyCode : Swift.RawRepresentable {}
+extension EXISDK.EXIHealthCondition : Swift.Equatable {}
+extension EXISDK.EXIHealthCondition : Swift.Encodable {}
+extension EXISDK.EXIHealthCondition : Swift.Decodable {}
+extension EXISDK.EXIHealthConditionStatus : Swift.Hashable {}
+extension EXISDK.EXIHealthConditionStatus : Swift.RawRepresentable {}
+extension EXISDK.EXIHealthConditionStream : Swift.Hashable {}
+extension EXISDK.EXIHealthConditionStream : Swift.RawRepresentable {}
+extension EXISDK.EXIFixedUnit : Swift.Hashable {}
+extension EXISDK.EXIFixedUnit : Swift.RawRepresentable {}
+extension EXISDK.EXIChartType : Swift.Hashable {}
+extension EXISDK.EXIChartType : Swift.RawRepresentable {}
+extension EXISDK.EXIStorefrontResponse : Swift.Equatable {}
+extension EXISDK.EXIStorefrontResponse : Swift.Hashable {}
+extension EXISDK.EXIMediaResourceType : Swift.Hashable {}
+extension EXISDK.EXIMediaResourceType : Swift.RawRepresentable {}
+extension EXISDK.EXITrackingType : Swift.Hashable {}
+extension EXISDK.EXITrackingType : Swift.RawRepresentable {}
+extension EXISDK.EXIHealthMetricRequest.EXIOrderBy : Swift.Hashable {}
+extension EXISDK.EXIHealthMetricRequest.EXIOrderBy : Swift.RawRepresentable {}
+extension EXISDK.EXIDevice : Swift.Equatable {}
+extension EXISDK.EXIDevice : Swift.Hashable {}
+extension EXISDK.EXIDevice : Swift.RawRepresentable {}
+extension EXISDK.EXIActivityLevel : Swift.Hashable {}
+extension EXISDK.EXIActivityLevel : Swift.RawRepresentable {}
+extension EXISDK.EXIMetricProgressType : Swift.Hashable {}
+extension EXISDK.EXIMetricProgressType : Swift.RawRepresentable {}
+extension EXISDK.EXISource : Swift.Hashable {}
+extension EXISDK.EXISource : Swift.RawRepresentable {}
+extension EXISDK.EXIBadge : Swift.Hashable {}
+extension EXISDK.EXIEnvironmentOptions : Swift.Equatable {}
+extension EXISDK.EXIEnvironmentOptions : Swift.Hashable {}
+extension EXISDK.EXICaptureMode : Swift.Hashable {}
+extension EXISDK.EXICaptureMode : Swift.RawRepresentable {}
+extension EXISDK.EXIIntensity : Swift.Hashable {}
+extension EXISDK.EXIIntensity : Swift.RawRepresentable {}
