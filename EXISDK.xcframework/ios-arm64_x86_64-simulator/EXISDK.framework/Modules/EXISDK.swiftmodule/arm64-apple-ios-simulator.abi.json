@@ -52687,7 +52687,7 @@
       "kind": "StringLiteral",
       "offset": 1407,
       "length": 7,
-      "value": "\"0.0.5\""
+      "value": "\"0.0.6\""
     },
     {
       "filePath": "\/Users\/thomasromay\/Documents\/Repo\/exi-ios-sdk\/Source\/Api\/Responses\/EXIUserHealthMetric.swift",
