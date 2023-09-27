@@ -9,6 +9,7 @@ Pod::Spec.new do |spec|
 	spec.ios.deployment_target = "12.0"
 	spec.swift_version = "5.7"
 	spec.source = { :git => "https://github.com/exiteam/exi-ios-sdk-framework.git", :tag => spec.version }
+	spec.readme = "https://github.com/exiteam/exi-ios-sdk-framework#readme"
 	spec.vendored_frameworks = "EXISDK.xcframework"
     spec.frameworks = 'Foundation'
 end
