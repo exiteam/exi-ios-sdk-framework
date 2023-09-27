@@ -115,14 +115,12 @@ The SDK provides a solution for e-prescribing physical activities based on a use
 
 ## Get New API Access Token
 
-- Access CMS: https://cms.integration.exi.health/
---  For other environments, replace .development with the environment you want i.e. .mobile
+- Access CMS: https://cms.integration.exi.life/
+--  For other environments, replace .integration with the environment you want i.e. .mobile
 --  If you need access to the CMS, message anyone with access to send you an invite.
 - Get the api key from there
 
 ## Get New JWS Token
-
-![Import Package](Documentation/usage/jws.png)
 
 You must encrypt your organisationId, userId, email and exp in the payload (claims)
 Then you must sign the following with your keys.
@@ -163,7 +161,6 @@ Step 2 - Install pod by running the following command in the directory with the
 ```sh
 $ pod install
 ```
-```SH
 
 ## Install using SPM
 Importing EXISDK into Project
@@ -176,11 +173,6 @@ Step 3: Enter the following repository url 'https://github.com/exiteam/exi-ios-s
 
 Step 4: Leave the default settings to get the most recent release and click next to finish importing
 
-```SH
-Version: 0.0.5
-```
-
-![Import Package](Documentation/usage/spm.png)
 
 ## Project Setup
 
