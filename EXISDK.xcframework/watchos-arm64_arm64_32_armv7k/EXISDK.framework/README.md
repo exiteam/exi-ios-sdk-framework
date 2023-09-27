@@ -2,9 +2,8 @@
 
 ## Table of Contents
 
-1. [EXI iOS SDK](#EXIiOSSDK)
+1. [Introduction](#Introduction)
 2. [Overview](#Overview)
-2. [Introduction](#Introduction)
 8. [SDK Overview](#SDKOverview)
 9. [Integration Steps](#IntegrationSteps)
 10. [Conclusion](#Conclusion)
@@ -28,26 +27,16 @@ Xcode 13.4 or later
 
 Deployable in: Swift 5.3 or later
 
-Minimum iOS Version Supported: iOS 14.3
+Minimum iOS Version Supported: iOS 10.0
 
 ## Introduction
 
-SDK stands for software development kit or devkit for short.
-
-It’s a set of software tools and programs used by developers to create applications for specific platforms. SDK tools will include a range of things, including libraries, documentation, code samples, processes, and guides that developers can use and integrate into their own apps. SDKs are designed to be used for specific platforms or programming languages.
-
-## Purpose of SDK
-
-The purpose of SDK is to avoid reusing code so that the development team can concentrate on creative work. SDK provides all of the necessary code that a user will need to build an application that uses API.
-
+The EXI SDK is an exercise prescription SDK that delivers personalized exercises that are clinically validated and digitally delivered for people with or at risk of chronic conditions. It will deal with approximately 23 chronic conditions.
 
 ## Getting Started
 
 To begin using our SDK, you will need to have an active account with us. Once you have an account, you can access the SDK documentation and download the SDK from our website.
 
-## The EXI SDK
-
-The EXI SDK is an exercise prescription SDK that delivers personalized exercises that are clinically validated and digitally delivered for people with or at risk of chronic conditions. It will deal with approximately 23 chronic conditions.
 
 ## SDK Features
 
@@ -126,30 +115,12 @@ The SDK provides a solution for e-prescribing physical activities based on a use
 
 ## Get New API Access Token
 
-- Access CMS: https://cms.development.exi.health/
---  For other environments, replace .development with the environment you want i.e. .mobile
+- Access CMS: https://cms.integration.exi.life/
+--  For other environments, replace .integration with the environment you want i.e. .mobile
 --  If you need access to the CMS, message anyone with access to send you an invite.
-- Go to Organizations
-
-![Import Package](Documentation/usage/org.png)
-
-- Create a new org 
-
-![Import Package](Documentation/usage/create_org.png)
-
-- Go to the edit org page (only available in edit and not create phase)
-
-![Import Package](Documentation/usage/edit_org.png)
-
-- Go to API “subpage” in dropdown
-
-![Import Package](Documentation/usage/api.png)
-
 - Get the api key from there
 
 ## Get New JWS Token
-
-![Import Package](Documentation/usage/jws.png)
 
 You must encrypt your organisationId, userId, email and exp in the payload (claims)
 Then you must sign the following with your keys.
@@ -184,17 +155,12 @@ To use the EXI iOS SDK, you have the following options:
 
 Step 1 - Add to your Podfile
 ```SH
-pod 'EXISDK'
+ pod 'EXISDK'
 ```
 Step 2 - Install pod by running the following command in the directory with the
 ```sh
 $ pod install
 ```
-```SH
-:git => 'https://{git_username}@github.com/exiteam/exi-ios-framework.git',
-:branch => 'pods'
-```
-`NOTE: Currently, pods are not pushed to the public cocoapods repo. These can be accessed only after authenticating with the user with access to the private repo.`
 
 ## Install using SPM
 Importing EXISDK into Project
@@ -203,15 +169,10 @@ Step 1: Click on Xcode project file
 
 Step 2: Click on Swift Packages and click on the plus to add a package
 
-Step 3: Enter the following repository url 'https://github.com/exiteam/exi-ios-framework.git' and click next
+Step 3: Enter the following repository url 'https://github.com/exiteam/exi-ios-sdk-framework.git' and click next
 
 Step 4: Leave the default settings to get the most recent release and click next to finish importing
 
-```SH
-Version: 0.0.1
-```
-
-![Import Package](Documentation/usage/spm.png)
 
 ## Project Setup
 
@@ -261,163 +222,71 @@ let configuration = EXIConfiguration(apiKey: "YOUR_DEVELOPER_API_KEY", jwsToken:
 ```
 ##### Get custom fields
 ```swift
-    func getCustomFields() async -> EXIResult<[EXICustomField]>
+    func getCustomFields(completion:@escaping (Result<[EXICustomField], EXIError>) -> Void)
 ```
 ##### Get health conditions
 ```swift
-    func getHealthConditions() async -> EXIResult<[EXIHealthCondition]>
+    func getHealthConditions(completion:@escaping (Result<[EXIHealthCondition], EXIError>) -> Void)
 ```
 ##### Get prescription
 ```swift
-    func getPrescription() async -> EXIResult<EXIPrescription>
+    func getPrescription(completion:@escaping (Result<EXIPrescription, EXIError>) -> Void)
 ```
 ##### Get prescription for single week
 ```swift
-    func getPrescription(week: Int) async -> EXIResult<EXIPrescription>
-```
-##### Get user badge according to week
-```swift
-    func getUserBadge(week: Int) async -> EXIResult<EXIBadge>
+    func getPrescription(week: Int, completion:@escaping EXIResult<EXIPrescription>)
 ```
 ##### Get user profile
 ```swift
-    func getUser() async -> EXIResult<EXIProfile>
+    func getUser(completion:@escaping (Result<EXIProfile?, EXIError>) -> Void)
 ```
-##### Delete Account
+##### Delete user
 ```swift
-    func deleteAccount() async -> EXIResult<Bool>
+    func deleteUser(completion:@escaping (Result<Bool, EXIError>) -> Void)
 ```
 ##### Restart prescription
 ```swift
-    func restartPrescription() async -> EXIResult<EXIPrescription>
+    func restartPrescription(completion:@escaping (Result<EXIPrescription, EXIError>) -> Void)
 ```
 ##### Update user profile
 ```swift
-    func updateUser(user: EXIProfileRequest) async -> EXIResult<EXIProfile>
+    func updateUser(completion:@escaping (Result<EXIProfile?, EXIError>) -> Void)
+```
+##### Delete user profile
+```swift
+    func deleteUser(completion:@escaping (Result<Bool, EXIError>) -> Void)
 ```
 ##### Get health condition details
 ```swift
-    func getHealthCondition(conditionId: String) async -> EXIResult<EXIHealthCondition>
+    func getHealthCondition(conditionId: String, completion:@escaping EXIResult<EXIHealthCondition>)
 ```
 #####  Check prescription availability
 ```swift
-    func isPrescriptionAvailable() async -> EXIResult<Bool>
+    func isPrescriptionAvailable(completion:@escaping EXIResult<Bool>)
 ```
 #####  Get all activity groups
 ```swift
-    func getActivityGroups(intensity: EXIIntensity) async -> EXIResult<[EXIActivityGroup]>
+    func getActivityGroups(intensity: EXIIntensity, completion:@escaping EXIResult<[EXIActivityGroup]>)
 ```
 #####  Get all activities list
 ```swift
-    func getAllActivities(intensity: EXIIntensity) async -> EXIResult<[EXIActivity]>
+    func getAllActivities(intensity: EXIIntensity, completion:@escaping EXIResult<[EXIActivity]>)
 ```
 #####  Log activity
 ```swift
-    func logActivity(request: EXILogActivityRequest) async -> EXIResult<EXIActivityLog>
+    func logActivity(activityLog: EXILogActivityRequest, completion:@escaping EXIResult<EXIActivityLog>)
 ```
 #####  Get activities logs
 ```swift
-    func getActivityLogs(loggedAt: String) async -> EXIResult<[EXIActivityLog]>
+    func getActivityLogs(loggedAt: String, completion:@escaping EXIResult<[EXIActivityLog]>)
 ```
 #####  Get user activities types
 ```swift
-    func getUserActivityTypes(intensity: EXIIntensity) async -> EXIResult<[EXIActivityType]>
+    func getUserActivityTypes(completion:@escaping EXIResult<[EXIUserActivityType]>)
 ```
 #####  Update health metrics
 ```swift
-    func updateHealthMetrics(healthMetrics: [EXIHealthMetric]) async -> EXIResult<[EXIHealthMetric]>
-```
-#####  Log six minute walk test
-```swift
-    func logSixMinuteWalk(request: EXISixMinuteWalkRequest) async -> EXIResult<EXISixMinuteWalkLog>
-```
-#####  Get user health metrics
-```swift
-    func getUserHealthMetrics(startDate: String?, metrics: [EXIHealthMetricName]?) async -> EXIResult<[EXIUserHealthMetric]>
-```
-#####  Get due user health metrics
-```swift
-    func getDueHealthMetrics() async -> EXIResult<[EXIHealthMetricName]>
-```
-#####  Get trackable user health metrics
-```swift
-    func getTrackableHealthMetrics() async -> EXIResult<[EXIMetric]>
-```
-#####  Get Health records
-```swift
-    func getHealthRecords() async -> EXIResult<[EXIGraph]> 
-```
-#####  Get Analysis Report
-```swift
-    func getAnalysisReport() async -> EXIResult<String>
-```
-#####  Get Media URL
-```swift
-    func getMediaURL(key: String) async -> EXIResult<String>
-```
-#####  Get Weekly reward threshold
-```swift
-    func getRewardThreshold(week: Int) async -> EXIResult<EXIRewardWeekThreshold>
-```
-#####  Get Media URL
-```swift
-    func getRewardScheme(week: Int?) async -> EXIResult<EXIRewardScheme>
-```
-#####  Get reward code
-```swift
-    func generateCode(rewardId: String) async -> EXIResult<RewardWearableCode> 
-```
-#####  Claim reward
-```swift
-    func claimReward(presenter: UIViewController, theme: EXIThemeable? = nil, reward: EXIStoreFrontProvider) -> AnyPublisher<EXIStorefrontResponse, Never>
-```
-#####  Confirm reward delivery after receving reward
-```swift
-    public func confirmRewardDelivery(rewardId: String) async -> EXIResult<Bool>
-```
-#####  Request healthkit permission
-```swift
-    func requestHealthKitPermission() async throws -> Bool
-```
-#####  Check healthkit permissions status
-```swift
-    func healthKitPermissionGranted() async throws -> Bool
-```
-#####  Start workout/activity
-```swift
-    func startWorkout(activityType: Int?) async throws -> AnyPublisher<EXIWorkoutData, Never>
-```
-#####  Pause workout/activity
-```swift
-    func pauseWorkout() async
-```
-#####  Resume workout/activity
-```swift
-    func resumeWorkout() async
-```
-#####  Submit workout/activity
-```swift
-    func submitWorkout(metrics: [EXIActivityTrackingMetrics]? = nil) async throws
-```
-#####  Get steps count within range
-```swift
-    func fetchSteps(from: Date, to: Date) async throws -> Int?
-```
-#####  Sync workouts from connected sdks
-```swift
-    func syncWorkouts(since: Date) async
-```
-#####  Connect to a sdk/device
-```swift
-    func connect(clientId: String, callbackScheme: String, anchor: ASPresentationAnchor) async -> Bool
-```
-#####  Check if device/sdk is connected 
-```swift
-    func isConnected(device: EXIDevice) -> Bool
-```
-#####  Disconnect sdk/device
-```swift
-    func disconnect(device: EXIDevice) async -> Bool
+    func updateHealthMetrics(healthMetrics: [EXIHealthMetric], completion:@escaping EXIResult<[EXIHealthMetric]>)
 ```
 
 ##### Main global error enum:
@@ -483,9 +352,8 @@ public struct EXIProfileRequest: Codable, Equatable {
 ```swift
 public struct EXILogActivityRequest: Codable, Equatable {
     public var loggedAt, activityType: String?
-    public var duration, heartRate, rpe, steps: Int?
-    public var distance: Double?
-    public init(loggedAt: String, activityType: String, duration: Int, heartRate: Int? = nil, rpe: Int? = nil, distance: Double? = nil, steps: Int? = nil) {
+    public var duration, heartRate, rpe, distance, steps: Int?
+    public init(loggedAt: String, activityType: String, duration: Int, heartRate: Int? = nil, rpe: Int? = nil, distance: Int? = nil, steps: Int? = nil) {
         self.loggedAt = loggedAt
         self.activityType = activityType
         self.duration = duration
@@ -496,74 +364,6 @@ public struct EXILogActivityRequest: Codable, Equatable {
     }
 }
 ```
-
-```swift
-public struct EXISixMinuteWalkRequest: Codable, Equatable {
-    public var heartBeatsPerMinute: Int?
-    public var distance: Double
-    public var loggedAt: String
-    public var rpe, stepCount, timeInterval: Int?
-    public var calorie: EXICalorie?
-    public var path: [EXIGeoPoint]?
-    public var heartRateTrace: [EXIHeartRateTrace]?
-    public init(heartBeatsPerMinute: Int? = nil, distance: Double, loggedAt: String, rpe: Int? = nil, stepCount: Int? = nil, timeInterval: Int? = nil, calorie: EXICalorie? = nil, path: [EXIGeoPoint]? = nil, heartRateTrace: [EXIHeartRateTrace]? = nil) {
-        self.heartBeatsPerMinute = heartBeatsPerMinute
-        self.distance = distance
-        self.loggedAt = loggedAt
-        self.rpe = rpe
-        self.stepCount = stepCount
-        self.timeInterval = timeInterval
-        self.calorie = calorie
-        self.path = path
-        self.heartRateTrace = heartRateTrace
-    }
-}
-```
-
-##### HealthKit read types:
-
-```swift    
-        HKObjectType.electrocardiogramType(),
-        HKObjectType.quantityType(forIdentifier: .activeEnergyBurned),
-        HKObjectType.quantityType(forIdentifier: .appleExerciseTime),
-        HKObjectType.quantityType(forIdentifier: .basalEnergyBurned),
-        HKObjectType.quantityType(forIdentifier: .distanceWalkingRunning),
-        HKObjectType.categoryType(forIdentifier: .highHeartRateEvent),
-        HKObjectType.quantityType(forIdentifier: .heartRate),
-        HKObjectType.quantityType(forIdentifier: .heartRateVariabilitySDNN),
-        HKObjectType.categoryType(forIdentifier: .irregularHeartRhythmEvent),
-        HKObjectType.categoryType(forIdentifier: .lowHeartRateEvent),
-        HKObjectType.categoryType(forIdentifier: .lowCardioFitnessEvent),
-        HKObjectType.quantityType(forIdentifier: .oxygenSaturation),
-        HKObjectType.quantityType(forIdentifier: .respiratoryRate),
-        HKObjectType.quantityType(forIdentifier: .restingHeartRate),
-        HKObjectType.quantityType(forIdentifier: .sixMinuteWalkTestDistance),
-        HKObjectType.categoryType(forIdentifier: .sleepAnalysis),
-        HKObjectType.quantityType(forIdentifier: .stairAscentSpeed),
-        HKObjectType.quantityType(forIdentifier: .stairDescentSpeed),
-        HKObjectType.quantityType(forIdentifier: .stepCount),
-        HKObjectType.quantityType(forIdentifier: .vo2Max),
-        HKObjectType.quantityType(forIdentifier: .walkingAsymmetryPercentage),
-        HKObjectType.quantityType(forIdentifier: .walkingHeartRateAverage),
-        HKObjectType.quantityType(forIdentifier: .walkingDoubleSupportPercentage),
-        HKObjectType.quantityType(forIdentifier: .walkingSpeed),
-        HKObjectType.quantityType(forIdentifier: .walkingStepLength),
-        HKObjectType.characteristicType(forIdentifier: .dateOfBirth),
-        HKObjectType.characteristicType(forIdentifier: .biologicalSex),
-        HKQuantityType.workoutType(),
-        HKSeriesType.workoutRoute()
-``` 
-
-##### HealthKit write types:
-   
-```swift   
-        HKObjectType.quantityType(forIdentifier: .stepCount),
-        HKObjectType.quantityType(forIdentifier: .heartRate),
-        HKObjectType.quantityType(forIdentifier: .sixMinuteWalkTestDistance),
-        HKSampleType.workoutType(),
-        HKSeriesType.workoutRoute()
-```        
-
 
 ##### Response classes:
 

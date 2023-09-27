@@ -30,7 +30,7 @@
 		</data>
 		<key>Modules/EXISDK.swiftmodule/arm64-apple-watchos-simulator.abi.json</key>
 		<data>
-		X7DneAwUcUobwCX2i3oJ94avnvw=
+		Zc/ViAommFeHKLL5KSuCK1ufSIU=
 		</data>
 		<key>Modules/EXISDK.swiftmodule/arm64-apple-watchos-simulator.private.swiftinterface</key>
 		<data>
@@ -46,11 +46,11 @@
 		</data>
 		<key>Modules/EXISDK.swiftmodule/arm64-apple-watchos-simulator.swiftmodule</key>
 		<data>
-		6RT4H6K7767Rwu+T3Uzo1pc6afU=
+		xxzxAPGNWaGdaHdqvG8YsW2ig+Q=
 		</data>
 		<key>Modules/EXISDK.swiftmodule/x86_64-apple-watchos-simulator.abi.json</key>
 		<data>
-		X7DneAwUcUobwCX2i3oJ94avnvw=
+		Zc/ViAommFeHKLL5KSuCK1ufSIU=
 		</data>
 		<key>Modules/EXISDK.swiftmodule/x86_64-apple-watchos-simulator.private.swiftinterface</key>
 		<data>
@@ -66,11 +66,11 @@
 		</data>
 		<key>Modules/EXISDK.swiftmodule/x86_64-apple-watchos-simulator.swiftmodule</key>
 		<data>
-		QpTZPzBMAMhKWYFx2MqFw90iFLc=
+		1UEg4h9ypXbvnuawbMnjCsk+FEI=
 		</data>
 		<key>README.md</key>
 		<data>
-		IHKc8FeOExn6dqI3Dg8j3RpU9/U=
+		dFId2/u33dNqKLfSCTwrWs/CJGA=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -114,7 +114,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Y+l+ais2rjdyPslGYePUDOKz1pxge5A2iOqPJjlKptM=
+			n6DDsB1eodpllvEZKvjpDUHO7YuwItKwzO6YcNuQVEA=
 			</data>
 		</dict>
 		<key>Modules/EXISDK.swiftmodule/arm64-apple-watchos-simulator.private.swiftinterface</key>
@@ -142,14 +142,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			X0+U0umx7PPQ31nGWiYWXEn/3SPGYh/Rm6yhSQ0Be+Q=
+			rQCU8AWrsP+kVLFtC8Ky/C+BBUVNpiOLCQb5YlQV9eA=
 			</data>
 		</dict>
 		<key>Modules/EXISDK.swiftmodule/x86_64-apple-watchos-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Y+l+ais2rjdyPslGYePUDOKz1pxge5A2iOqPJjlKptM=
+			n6DDsB1eodpllvEZKvjpDUHO7YuwItKwzO6YcNuQVEA=
 			</data>
 		</dict>
 		<key>Modules/EXISDK.swiftmodule/x86_64-apple-watchos-simulator.private.swiftinterface</key>
@@ -177,14 +177,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			kZ10eZMecWRHevlP1C6wbcRj479qsNtws1obf3BdK4U=
+			MKgidhMTq4Yt6G1GT8BJJdY6+faOyKN+zHSF4SXXqM0=
 			</data>
 		</dict>
 		<key>README.md</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			n2m0P5dEMBVPli/PZd1Y1dopu+Yu2t0quxURvlCtVN4=
+			cxQ+YH34EkEN3yGMAS4Az8G/2YVGiKy3aLzCt0m3XRc=
 			</data>
 		</dict>
 	</dict>
