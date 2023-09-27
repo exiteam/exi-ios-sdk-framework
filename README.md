@@ -2,9 +2,8 @@
 
 ## Table of Contents
 
-1. [EXI iOS SDK](#EXIiOSSDK)
+1. [Introduction](#Introduction)
 2. [Overview](#Overview)
-2. [Introduction](#Introduction)
 8. [SDK Overview](#SDKOverview)
 9. [Integration Steps](#IntegrationSteps)
 10. [Conclusion](#Conclusion)
@@ -30,7 +29,7 @@ Deployable in: Swift 5.3 or later
 
 Minimum iOS Version Supported: iOS 10.0
 
-## The EXI SDK
+## Introduction
 
 The EXI SDK is an exercise prescription SDK that delivers personalized exercises that are clinically validated and digitally delivered for people with or at risk of chronic conditions. It will deal with approximately 23 chronic conditions.
 
@@ -116,7 +115,7 @@ The SDK provides a solution for e-prescribing physical activities based on a use
 
 ## Get New API Access Token
 
-- Access CMS: https://cms.development.exi.health/
+- Access CMS: https://cms.integration.exi.health/
 --  For other environments, replace .development with the environment you want i.e. .mobile
 --  If you need access to the CMS, message anyone with access to send you an invite.
 - Get the api key from there
@@ -158,7 +157,7 @@ To use the EXI iOS SDK, you have the following options:
 
 Step 1 - Add to your Podfile
 ```SH
- pod 'EXISDK', '0.0.4'
+ pod 'EXISDK'
 ```
 Step 2 - Install pod by running the following command in the directory with the
 ```sh
@@ -178,7 +177,7 @@ Step 3: Enter the following repository url 'https://github.com/exiteam/exi-ios-s
 Step 4: Leave the default settings to get the most recent release and click next to finish importing
 
 ```SH
-Version: 0.0.4
+Version: 0.0.5
 ```
 
 ![Import Package](Documentation/usage/spm.png)

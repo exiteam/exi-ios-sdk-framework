@@ -30,7 +30,7 @@
 		</data>
 		<key>Modules/EXISDK.swiftmodule/arm64-apple-watchos-simulator.abi.json</key>
 		<data>
-		BDRBKF2l8d5SdWZrYEjHxoSWE5A=
+		RiXvlIqakGRSl+vUZwqr/NRswm4=
 		</data>
 		<key>Modules/EXISDK.swiftmodule/arm64-apple-watchos-simulator.private.swiftinterface</key>
 		<data>
@@ -46,11 +46,11 @@
 		</data>
 		<key>Modules/EXISDK.swiftmodule/arm64-apple-watchos-simulator.swiftmodule</key>
 		<data>
-		KdmqzTXjw9YP3NageoVwFKcucVA=
+		fGkMfvOLo80c6v275GasMskIxe0=
 		</data>
 		<key>Modules/EXISDK.swiftmodule/x86_64-apple-watchos-simulator.abi.json</key>
 		<data>
-		BDRBKF2l8d5SdWZrYEjHxoSWE5A=
+		RiXvlIqakGRSl+vUZwqr/NRswm4=
 		</data>
 		<key>Modules/EXISDK.swiftmodule/x86_64-apple-watchos-simulator.private.swiftinterface</key>
 		<data>
@@ -66,7 +66,7 @@
 		</data>
 		<key>Modules/EXISDK.swiftmodule/x86_64-apple-watchos-simulator.swiftmodule</key>
 		<data>
-		ib/iG1sAGJJ8BOxBeArkRr6hOOo=
+		B6V/DxSt2+Z1lTCKcz8rPh9Ym60=
 		</data>
 		<key>README.md</key>
 		<data>
@@ -114,7 +114,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			of4T8T2WJNGWzGO5kGZBjpuzwvcgi+OwZ+r46b7AWO8=
+			rz+TlwJ8odaryyMLYI6ARc/LeqhxY5oqiL5Nhyfcbz8=
 			</data>
 		</dict>
 		<key>Modules/EXISDK.swiftmodule/arm64-apple-watchos-simulator.private.swiftinterface</key>
@@ -142,14 +142,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			kUPpX59XRsRlekSvFx9mueyG0yArOj78CVzxjPyM1FA=
+			1Nc1ueHDyT6NKZqIv0+lGbH5W/O5c3SXLsNFBYvOQx8=
 			</data>
 		</dict>
 		<key>Modules/EXISDK.swiftmodule/x86_64-apple-watchos-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			of4T8T2WJNGWzGO5kGZBjpuzwvcgi+OwZ+r46b7AWO8=
+			rz+TlwJ8odaryyMLYI6ARc/LeqhxY5oqiL5Nhyfcbz8=
 			</data>
 		</dict>
 		<key>Modules/EXISDK.swiftmodule/x86_64-apple-watchos-simulator.private.swiftinterface</key>
@@ -177,7 +177,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			XL8JenVv1a3qASaKRlDDN154wwZRRdMXTm8LUKbYrSU=
+			idpTd6qxELiH8piMMPXPNIErEImRiX3UrxhDviHrzBo=
 			</data>
 		</dict>
 		<key>README.md</key>

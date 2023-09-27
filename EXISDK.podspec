@@ -1,9 +1,9 @@
 Pod::Spec.new do |spec|
 	spec.name = "EXISDK"
-	spec.version = "0.0.4"
+	spec.version = "0.0.5"
 	spec.summary = "Personalised exercise prescription"
-	spec.homepage = "https://exi.life"
-	spec.author = { "EXI Software Foundation" => "info@exi.life" }
+	spec.homepage = "https://www.exi.life/sdk-getting-started/"
+	spec.author = { "EXI":"info@exi.life" }
 	spec.license = 'MIT'
 	spec.platform = :ios
 	spec.ios.deployment_target = "12.0"
